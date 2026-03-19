@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react"
 import {
   ArrowRight,
+  ArrowUpRight,
   BadgeCheck,
   BrainCircuit,
   BriefcaseBusiness,
@@ -111,7 +112,7 @@ const experience = [
 const skillGroups = [
   {
     title: "Microsoft stack",
-    items: ["Dynamics 365", "Power Platform", "Power Automate", "Customer Insights", "Power BI", "Code Apps"],
+    items: ["Dynamics 365", "Power Platform", "Power Automate", "Customer Insights", "Power BI", "Canvas Apps"],
   },
   {
     title: "Engineering",
@@ -133,205 +134,243 @@ const certifications = [
   "Dynamics 365 Fundamentals (MB-910)",
 ]
 
+const marqueeItems = [
+  "Dynamics 365", "Power Platform", "Copilot Studio", "Power Automate",
+  "Customer Insights", "Power BI", "React", "C#", "Python", "SQL",
+  "NumPy", "pandas", "scikit-learn",
+]
+
 export default function HomePage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
-    <div className="portfolio-shell">
-      <div className="ambient-blob ambient-blob-one" />
-      <div className="ambient-blob ambient-blob-two" />
-      <div className="ambient-blob ambient-blob-three" />
-      <div className="grain-overlay" />
+    <div>
+      <div className="bg-wash" />
+      <div className="bg-dots" />
 
-      <section className="mx-auto flex min-h-dvh w-full max-w-7xl flex-col px-5 pb-16 pt-5 sm:px-8 lg:px-10">
+      <div className="container-main">
         {/* ── Nav ── */}
-        <nav className="site-nav">
-          <div className="nav-top-row">
-            <a href="#top" className="brand-mark" aria-label="Ranjith Kumar home">
-              <span>RK</span>
-              <div>
-                <p>Ranjith Kumar M</p>
-                <p>Dynamics Developer</p>
-              </div>
-            </a>
-
-            <div className="nav-right-group">
-              <div className={`nav-links ${mobileNavOpen ? "nav-links-open" : ""}`}>
-                <a href="#about" onClick={() => setMobileNavOpen(false)}>About</a>
-                <a href="#experience" onClick={() => setMobileNavOpen(false)}>Experience</a>
-                <a href="#skills" onClick={() => setMobileNavOpen(false)}>Skills</a>
-                <a href="#contact" onClick={() => setMobileNavOpen(false)}>Contact</a>
-              </div>
-              <ModeToggle />
-              <button
-                className="mobile-nav-toggle"
-                onClick={() => setMobileNavOpen((v) => !v)}
-                aria-label="Toggle navigation"
-              >
-                {mobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </button>
+        <nav className="nav">
+          <a href="#top" className="nav-brand" aria-label="Ranjith Kumar home">
+            <span className="nav-brand-icon">RK</span>
+            <div>
+              <div className="nav-brand-text">Ranjith Kumar M</div>
+              <div className="nav-brand-sub">Dynamics Developer</div>
             </div>
+          </a>
+
+          <div className={`nav-links ${mobileNavOpen ? "nav-links-open" : ""}`}>
+            <a href="#about" onClick={() => setMobileNavOpen(false)}>About</a>
+            <a href="#experience" onClick={() => setMobileNavOpen(false)}>Experience</a>
+            <a href="#skills" onClick={() => setMobileNavOpen(false)}>Skills</a>
+            <a href="#contact" onClick={() => setMobileNavOpen(false)}>Contact</a>
+          </div>
+
+          <div className="nav-actions">
+            <ModeToggle />
+            <button
+              className="nav-toggle"
+              onClick={() => setMobileNavOpen((v) => !v)}
+              aria-label="Toggle navigation"
+            >
+              {mobileNavOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
           </div>
         </nav>
 
         {/* ── Hero ── */}
-        <div id="top" className="hero-grid">
+        <section id="top" className="hero">
           <Reveal>
-            <div className="space-y-8">
-              <div className="hero-copy-block">
-                <span className="eyebrow">
-                  <Sparkles className="h-4 w-4" />
-                  Infosys engineer working on Microsoft ecosystem projects
-                </span>
-
-                <h1 className="hero-title">
-                  Building smoother customer journeys with Dynamics&nbsp;365, Power Platform, and data&#8209;driven automation.
-                </h1>
-
-                <p className="hero-description">
-                  Ranjith Kumar M is an Infosys developer with 3+ years of experience across Dynamics 365, Power
-                  Platform, customer insights, workflow automation, and now working on Microsoft's Copilot Studio Kit.
-                </p>
-              </div>
-
-              <div className="hero-actions">
-                <a className="primary-cta" href="mailto:Mailranjith7022@gmail.com">
-                  <span>Start a conversation</span>
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-
-                <a
-                  className="secondary-cta"
-                  href="/Ranjith-Kumar-Resume.pdf"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  Download resume
-                </a>
-              </div>
-
-              <div className="contact-strip">
-                <a href="mailto:Mailranjith7022@gmail.com">
-                  <Mail className="h-4 w-4" />
-                  Mailranjith7022@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/ranjith-kumar-m-739505154/" target="_blank" rel="noreferrer noopener">
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </a>
-                <a href="https://github.com/ranjith7022" target="_blank" rel="noreferrer noopener">
-                  <Github className="h-4 w-4" />
-                  GitHub
-                </a>
-                <span>
-                  <MapPin className="h-4 w-4" />
-                  Chennai, Tamil Nadu
-                </span>
-              </div>
+            <div className="hero-status">
+              <span className="status-dot" />
+              Building at Infosys for Microsoft
             </div>
           </Reveal>
 
-          <Reveal delay={150}>
-            <aside className="hero-panel">
-              <p className="panel-label">Current focus</p>
-              <h2>Copilot Studio and Power Platform work for Microsoft, backed by strong CRM delivery experience.</h2>
-              <p>
-                Current delivery includes the Power CAT Copilot Studio Kit, alongside prior work in onboarding flows,
-                form customization, API integrations, consent management, and Customer Insights segmentation.
-              </p>
+          <Reveal delay={80}>
+            <h1 className="hero-name">
+              Ranjith<br />Kumar M
+            </h1>
+          </Reveal>
 
-              <div className="mini-grid">
-                <div className="mini-card">
-                  <span>Current project</span>
-                  <strong>Power CAT Copilot Studio Kit</strong>
-                </div>
-                <div className="mini-card">
-                  <span>Role</span>
-                  <strong>Infosys working with Microsoft</strong>
-                </div>
-                <div className="mini-card">
-                  <span>Stack</span>
-                  <strong>Copilot Studio, Power Platform, Dynamics 365, React</strong>
-                </div>
-              </div>
+          <Reveal delay={160}>
+            <p className="hero-role">
+              Dynamics 365 &amp; Power Platform Developer
+            </p>
+          </Reveal>
 
+          <Reveal delay={240}>
+            <p className="hero-desc">
+              Building smoother customer journeys with Dynamics&nbsp;365, Power Platform,
+              and data&#8209;driven automation — and now working on Microsoft's Copilot Studio Kit.
+            </p>
+          </Reveal>
+
+          <Reveal delay={320}>
+            <div className="hero-buttons">
+              <a className="btn-primary" href="mailto:Mailranjith7022@gmail.com">
+                <span>Start a conversation</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
               <a
-                className="secondary-cta w-fit"
-                href="https://github.com/microsoft/Power-CAT-Copilot-Studio-Kit"
+                className="btn-outline"
+                href="/Ranjith-Kumar-Resume.pdf"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                View Microsoft project
+                Download resume
               </a>
-            </aside>
+            </div>
           </Reveal>
-        </div>
 
-        {/* ── Stats ── */}
-        <div className="stats-grid">
-          {quickStats.map((item, i) => (
-            <Reveal key={item.label} delay={i * 100}>
-              <article className="stat-card">
-                <strong>{item.value}</strong>
-                <p>{item.label}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+          <Reveal delay={400}>
+            <div className="hero-links">
+              <a className="hero-link" href="mailto:Mailranjith7022@gmail.com">
+                <Mail className="h-3.5 w-3.5" />
+                Mailranjith7022@gmail.com
+              </a>
+              <a className="hero-link" href="https://www.linkedin.com/in/ranjith-kumar-m-739505154/" target="_blank" rel="noreferrer noopener">
+                <Linkedin className="h-3.5 w-3.5" />
+                LinkedIn
+              </a>
+              <a className="hero-link" href="https://github.com/ranjith7022" target="_blank" rel="noreferrer noopener">
+                <Github className="h-3.5 w-3.5" />
+                GitHub
+              </a>
+              <span className="hero-link">
+                <MapPin className="h-3.5 w-3.5" />
+                Chennai, Tamil Nadu
+              </span>
+            </div>
+          </Reveal>
+        </section>
+      </div>
 
-        {/* ── About ── */}
-        <section id="about" className="section-panel section-spacing">
+      {/* ── Marquee (full-bleed) ── */}
+      <Reveal>
+        <div className="marquee">
+          <div className="marquee-track">
+            {[...marqueeItems, ...marqueeItems].map((item, i) => (
+              <span key={i} className="marquee-item">
+                <span className="marquee-dot" />
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      <div className="container-main" style={{ paddingTop: 0 }}>
+        {/* ── Bento: About + Stats + Focus ── */}
+        <section id="about" className="section">
           <Reveal>
-            <div className="section-heading">
-              <p className="section-kicker">About</p>
-              <h2>Practical business applications, delivered with a builder&apos;s mindset.</h2>
-              <p>
-                Ranjith specializes in turning Microsoft business application tools into workflows that are easier to
-                operate, easier to trust, and easier to scale, from CRM process automation to agent governance and
-                testing workflows.
+            <div>
+              <p className="section-label">About</p>
+              <h2 className="section-title">
+                Practical business applications, delivered with a builder&apos;s mindset.
+              </h2>
+              <p className="section-desc">
+                Ranjith specializes in turning Microsoft business application tools into workflows
+                that are easier to operate, easier to trust, and easier to scale.
               </p>
             </div>
           </Reveal>
 
-          <div className="feature-grid">
+          <div className="bento">
+            {/* Featured: Current project */}
+            <Reveal delay={0}>
+              <div className="glass-card bento-card bento-featured">
+                <div className="bento-card-label">Current Focus</div>
+                <h3 className="bento-card-title">
+                  Copilot Studio &amp; Power Platform work for Microsoft
+                </h3>
+                <p className="bento-card-desc">
+                  Current delivery includes the Power CAT Copilot Studio Kit — working on
+                  agent testing, governance workflows, prompt quality, and analytics for
+                  agent performance and usage visibility.
+                </p>
+                <div className="bento-tag-row">
+                  <span className="bento-tag">Copilot Studio</span>
+                  <span className="bento-tag">Power Platform</span>
+                  <span className="bento-tag">C#</span>
+                  <span className="bento-tag">Dataverse</span>
+                </div>
+                <a
+                  className="bento-link"
+                  href="https://github.com/microsoft/Power-CAT-Copilot-Studio-Kit"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  View Microsoft project <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </Reveal>
+
+            {/* Stat: Years */}
+            <Reveal delay={80}>
+              <div className="glass-card bento-card">
+                <div className="bento-stat-value">{quickStats[0].value}</div>
+                <p className="bento-stat-label">{quickStats[0].label}</p>
+              </div>
+            </Reveal>
+
+            {/* Stat: Programs */}
+            <Reveal delay={120}>
+              <div className="glass-card bento-card">
+                <div className="bento-stat-value">{quickStats[1].value}</div>
+                <p className="bento-stat-label">{quickStats[1].label}</p>
+              </div>
+            </Reveal>
+
+            {/* Stat: Certifications */}
+            <Reveal delay={160}>
+              <div className="glass-card bento-card">
+                <div className="bento-stat-value">{quickStats[2].value}</div>
+                <p className="bento-stat-label">{quickStats[2].label}</p>
+              </div>
+            </Reveal>
+
+            {/* Focus Areas */}
             {focusAreas.map(({ icon: Icon, title, description }, i) => (
-              <Reveal key={title} delay={i * 100}>
-                <article className="feature-card">
-                  <div className="feature-icon-wrap">
+              <Reveal key={title} delay={200 + i * 60}>
+                <div className={`glass-card bento-card${i === focusAreas.length - 1 ? " bento-wide" : ""}`}>
+                  <div className="bento-icon">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                </article>
+                  <h3 className="bento-card-title">{title}</h3>
+                  <p className="bento-card-desc">{description}</p>
+                </div>
               </Reveal>
             ))}
           </div>
         </section>
 
         {/* ── Experience ── */}
-        <section id="experience" className="section-panel section-spacing">
+        <section id="experience" className="section">
           <Reveal>
-            <div className="section-heading">
-              <p className="section-kicker">Experience</p>
-              <h2>From healthcare lead workflows to banking onboarding journeys.</h2>
-              <p>
-                Built across Tata Consultancy Services and Infosys in high-stakes client environments where data quality,
-                communication accuracy, governance, and operational speed all matter.
+            <div>
+              <p className="section-label">Experience</p>
+              <h2 className="section-title">
+                From healthcare lead workflows to banking onboarding journeys.
+              </h2>
+              <p className="section-desc">
+                Built across Tata Consultancy Services and Infosys in high-stakes client
+                environments where data quality, communication accuracy, governance, and
+                operational speed all matter.
               </p>
             </div>
           </Reveal>
 
-          <div className="timeline">
+          <div className="exp-grid">
             {experience.map((role, i) => (
-              <Reveal key={role.client} delay={i * 80}>
-                <article className="timeline-card">
-                  <div className="timeline-meta">
-                    <span>{role.period}</span>
-                    <h3>{role.client}</h3>
-                    <p>{role.title}</p>
+              <Reveal key={role.client} delay={i * 80} className="exp-item">
+                <article className="glass-card exp-card">
+                  <div>
+                    <span className="exp-period">{role.period}</span>
+                    <h3 className="exp-client">{role.client}</h3>
+                    <p className="exp-role">{role.title}</p>
                   </div>
-
-                  <ul>
+                  <ul className="exp-points">
                     {role.points.map((point) => (
                       <li key={point}>{point}</li>
                     ))}
@@ -343,97 +382,103 @@ export default function HomePage() {
         </section>
 
         {/* ── Skills ── */}
-        <section id="skills" className="section-panel section-spacing">
+        <section id="skills" className="section">
           <Reveal>
-            <div className="section-heading">
-              <p className="section-kicker">Skills</p>
-              <h2>Strong across platform delivery, engineering fundamentals, and analytics.</h2>
-              <p>
-                A balanced toolkit for building customer-facing systems that also need clean logic, integrations, and
-                data awareness behind the scenes.
+            <div>
+              <p className="section-label">Skills</p>
+              <h2 className="section-title">
+                Strong across platform delivery, engineering fundamentals, and analytics.
+              </h2>
+              <p className="section-desc">
+                A balanced toolkit for building customer-facing systems that also need
+                clean logic, integrations, and data awareness behind the scenes.
               </p>
             </div>
           </Reveal>
 
-          <div className="skills-layout">
-            <div className="skill-group-grid">
-              {skillGroups.map((group, i) => (
-                <Reveal key={group.title} delay={i * 80}>
-                  <article className="skill-group-card">
-                    <h3>{group.title}</h3>
-                    <div className="chip-row">
-                      {group.items.map((item) => (
-                        <span key={item} className="skill-chip">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-
-            <Reveal delay={200}>
-              <div className="insight-card">
-                <div className="insight-head">
-                  <ChartNoAxesCombined className="h-5 w-5" />
-                  <h3>What stands out</h3>
+          <div className="skills-grid">
+            {skillGroups.map((group, i) => (
+              <Reveal key={group.title} delay={i * 80}>
+                <div className="glass-card">
+                  <h3 className="skill-title">{group.title}</h3>
+                  <div className="chip-row">
+                    {group.items.map((item) => (
+                      <span key={item} className="chip">{item}</span>
+                    ))}
+                  </div>
                 </div>
-                <p>
-                  This profile combines Microsoft business applications expertise with hands-on analytics and machine
-                  learning exposure, which is especially useful when customer journeys depend on smarter data decisions.
-                </p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={350}>
+            <div className="glass-card insight-card">
+              <div className="insight-head">
+                <ChartNoAxesCombined className="h-5 w-5" />
+                <h3>What stands out</h3>
+              </div>
+              <p>
+                This profile combines Microsoft business applications expertise with hands-on
+                analytics and machine learning exposure — especially useful when customer
+                journeys depend on smarter data decisions.
+              </p>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* ── Certifications and Education ── */}
+        <section className="section">
+          <div className="creds-grid">
+            <Reveal>
+              <div className="glass-card">
+                <div className="cred-head">
+                  <BadgeCheck className="h-5 w-5" />
+                  <h2>Certifications</h2>
+                </div>
+                <ul className="cred-list">
+                  {certifications.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="glass-card">
+                <div className="cred-head">
+                  <GraduationCap className="h-5 w-5" />
+                  <h2>Education</h2>
+                </div>
+                <p className="edu-school">Rajalakshmi Engineering College</p>
+                <p className="edu-detail">B.Tech, 2017 - 2021</p>
+                <p className="edu-detail">CGPA: 8.7</p>
               </div>
             </Reveal>
           </div>
         </section>
 
-        {/* ── Certifications and Education ── */}
-        <section className="section-panel section-spacing split-panel">
-          <Reveal>
-            <article className="info-card">
-              <div className="info-head">
-                <BadgeCheck className="h-5 w-5" />
-                <h2>Certifications</h2>
-              </div>
-              <ul className="simple-list">
-                {certifications.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <article className="info-card">
-              <div className="info-head">
-                <GraduationCap className="h-5 w-5" />
-                <h2>Education</h2>
-              </div>
-              <p className="education-school">Rajalakshmi Engineering College</p>
-              <p>B.Tech, 2017 - 2021</p>
-              <p>CGPA: 8.7</p>
-            </article>
-          </Reveal>
-        </section>
-
         {/* ── Contact CTA ── */}
         <Reveal>
-          <section id="contact" className="cta-panel">
-            <p className="section-kicker">Contact</p>
-            <h2>Open to roles where Dynamics 365 and Power Platform can create measurable customer impact.</h2>
-            <p>
-              If you&apos;re hiring for CRM, automation, or customer data work inside the Microsoft ecosystem, this site
-              is ready to start that conversation.
+          <section id="contact" className="cta">
+            <p className="section-label">
+              <Sparkles className="h-3.5 w-3.5" />
+              Contact
             </p>
-
-            <div className="hero-actions">
-              <a className="primary-cta" href="mailto:Mailranjith7022@gmail.com">
+            <h2 className="section-title">
+              Let&apos;s build something that matters.
+            </h2>
+            <p className="section-desc">
+              Open to roles where Dynamics 365 and Power Platform can create measurable
+              customer impact. If you&apos;re hiring for CRM, automation, or customer data
+              work inside the Microsoft ecosystem — let&apos;s talk.
+            </p>
+            <div className="cta-actions">
+              <a className="btn-primary" href="mailto:Mailranjith7022@gmail.com">
                 <span>Email Ranjith</span>
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                className="secondary-cta"
+                className="btn-outline"
                 href="https://www.linkedin.com/in/ranjith-kumar-m-739505154/"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -441,7 +486,7 @@ export default function HomePage() {
                 LinkedIn
               </a>
               <a
-                className="secondary-cta"
+                className="btn-outline"
                 href="https://github.com/ranjith7022"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -457,7 +502,7 @@ export default function HomePage() {
           <p>&copy; {new Date().getFullYear()} Ranjith Kumar M</p>
           <p>Built with React, Tailwind CSS, and shadcn/ui</p>
         </footer>
-      </section>
+      </div>
     </div>
   )
 }
