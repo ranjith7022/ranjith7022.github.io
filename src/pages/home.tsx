@@ -190,7 +190,7 @@ export default function HomePage() {
 
                 <p className="hero-description">
                   Ranjith Kumar M is an Infosys developer with 3+ years of experience across Dynamics 365, Power
-                  Platform, customer insights, workflow automation, and now Microsoft-facing Copilot Studio work.
+                  Platform, customer insights, workflow automation, and now working on Microsoft's Copilot Studio Kit.
                 </p>
               </div>
 
