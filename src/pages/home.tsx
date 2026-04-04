@@ -181,67 +181,97 @@ export default function HomePage() {
         {/* ── Hero ── */}
         <section id="top" className="hero">
           <Reveal>
-            <div className="hero-status">
-              <span className="status-dot" />
-              Building at Infosys for Microsoft
+            <div className="hero-content">
+              <div className="hero-status">
+                <span className="status-dot" />
+                Building at Infosys for Microsoft
+              </div>
+
+              <h1 className="hero-name">
+                Ranjith<br />Kumar M
+              </h1>
+
+              <p className="hero-role">
+                Dynamics 365 &amp; Power Platform Developer
+              </p>
+
+              <p className="hero-desc">
+                Building smoother customer journeys with Dynamics&nbsp;365, Power Platform,
+                and data&#8209;driven automation — and now working on Microsoft's Copilot Studio Kit.
+              </p>
+
+              <div className="hero-buttons">
+                <a className="btn-primary" href="mailto:Mailranjith7022@gmail.com">
+                  <span>Start a conversation</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <a
+                  className="btn-outline"
+                  href="/Ranjith-Kumar-Resume.pdf"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Download resume
+                </a>
+              </div>
+
+              <div className="hero-links">
+                <a className="hero-link" href="mailto:Mailranjith7022@gmail.com">
+                  <Mail className="h-3.5 w-3.5" />
+                  Mailranjith7022@gmail.com
+                </a>
+                <a className="hero-link" href="https://www.linkedin.com/in/ranjith-kumar-m-739505154/" target="_blank" rel="noreferrer noopener">
+                  <Linkedin className="h-3.5 w-3.5" />
+                  LinkedIn
+                </a>
+                <a className="hero-link" href="https://github.com/ranjith7022" target="_blank" rel="noreferrer noopener">
+                  <Github className="h-3.5 w-3.5" />
+                  GitHub
+                </a>
+                <span className="hero-link">
+                  <MapPin className="h-3.5 w-3.5" />
+                  Chennai, Tamil Nadu
+                </span>
+              </div>
             </div>
           </Reveal>
 
-          <Reveal delay={80}>
-            <h1 className="hero-name">
-              Ranjith<br />Kumar M
-            </h1>
-          </Reveal>
+          <Reveal delay={150}>
+            <aside className="hero-panel">
+              <div className="bento-card-label">Current Focus</div>
+              <h2 className="hero-panel-title">
+                Copilot Studio &amp; Power Platform work for Microsoft
+              </h2>
+              <p className="hero-panel-desc">
+                Current delivery includes the Power CAT Copilot Studio Kit — working on
+                agent testing, governance workflows, prompt quality, and analytics for
+                agent performance and usage visibility.
+              </p>
 
-          <Reveal delay={160}>
-            <p className="hero-role">
-              Dynamics 365 &amp; Power Platform Developer
-            </p>
-          </Reveal>
+              <div className="hero-mini-grid">
+                <div className="hero-mini-card">
+                  <span>Current project</span>
+                  <strong>Power CAT Copilot Studio Kit</strong>
+                </div>
+                <div className="hero-mini-card">
+                  <span>Role</span>
+                  <strong>Infosys for Microsoft</strong>
+                </div>
+                <div className="hero-mini-card">
+                  <span>Stack</span>
+                  <strong>Copilot Studio, Power Platform, C#, Dataverse</strong>
+                </div>
+              </div>
 
-          <Reveal delay={240}>
-            <p className="hero-desc">
-              Building smoother customer journeys with Dynamics&nbsp;365, Power Platform,
-              and data&#8209;driven automation — and now working on Microsoft's Copilot Studio Kit.
-            </p>
-          </Reveal>
-
-          <Reveal delay={320}>
-            <div className="hero-buttons">
-              <a className="btn-primary" href="mailto:Mailranjith7022@gmail.com">
-                <span>Start a conversation</span>
-                <ArrowRight className="h-4 w-4" />
-              </a>
               <a
-                className="btn-outline"
-                href="/Ranjith-Kumar-Resume.pdf"
+                className="bento-link"
+                href="https://github.com/microsoft/Power-CAT-Copilot-Studio-Kit"
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                Download resume
+                View Microsoft project <ArrowUpRight className="h-3.5 w-3.5" />
               </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={400}>
-            <div className="hero-links">
-              <a className="hero-link" href="mailto:Mailranjith7022@gmail.com">
-                <Mail className="h-3.5 w-3.5" />
-                Mailranjith7022@gmail.com
-              </a>
-              <a className="hero-link" href="https://www.linkedin.com/in/ranjith-kumar-m-739505154/" target="_blank" rel="noreferrer noopener">
-                <Linkedin className="h-3.5 w-3.5" />
-                LinkedIn
-              </a>
-              <a className="hero-link" href="https://github.com/ranjith7022" target="_blank" rel="noreferrer noopener">
-                <Github className="h-3.5 w-3.5" />
-                GitHub
-              </a>
-              <span className="hero-link">
-                <MapPin className="h-3.5 w-3.5" />
-                Chennai, Tamil Nadu
-              </span>
-            </div>
+            </aside>
           </Reveal>
         </section>
       </div>
@@ -277,35 +307,6 @@ export default function HomePage() {
           </Reveal>
 
           <div className="bento">
-            {/* Featured: Current project */}
-            <Reveal delay={0}>
-              <div className="glass-card bento-card bento-featured">
-                <div className="bento-card-label">Current Focus</div>
-                <h3 className="bento-card-title">
-                  Copilot Studio &amp; Power Platform work for Microsoft
-                </h3>
-                <p className="bento-card-desc">
-                  Current delivery includes the Power CAT Copilot Studio Kit — working on
-                  agent testing, governance workflows, prompt quality, and analytics for
-                  agent performance and usage visibility.
-                </p>
-                <div className="bento-tag-row">
-                  <span className="bento-tag">Copilot Studio</span>
-                  <span className="bento-tag">Power Platform</span>
-                  <span className="bento-tag">C#</span>
-                  <span className="bento-tag">Dataverse</span>
-                </div>
-                <a
-                  className="bento-link"
-                  href="https://github.com/microsoft/Power-CAT-Copilot-Studio-Kit"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  View Microsoft project <ArrowUpRight className="h-3.5 w-3.5" />
-                </a>
-              </div>
-            </Reveal>
-
             {/* Stat: Years */}
             <Reveal delay={80}>
               <div className="glass-card bento-card">
