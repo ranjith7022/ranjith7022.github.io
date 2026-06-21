@@ -411,6 +411,7 @@ body {
   gap: 2rem;
   padding: 4.5rem 0 2.5rem;
   align-items: center;
+  scroll-margin-top: 2rem;
 }
 
 .hero-content {
@@ -689,6 +690,8 @@ body {
   border-bottom: 1px solid var(--border);
   background: color-mix(in oklab, var(--card) 60%, transparent);
   margin-bottom: 2rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 
 .marquee-track {
@@ -736,6 +739,7 @@ body {
   margin-top: 2rem;
   content-visibility: auto;
   contain-intrinsic-size: 720px;
+  scroll-margin-top: 2rem;
 }
 
 .section-label {
@@ -754,7 +758,7 @@ body {
   font-family: "Space Grotesk", sans-serif;
   font-size: 2.25rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: 0;
   max-width: 18ch;
   margin-bottom: 0.75rem;
@@ -1140,6 +1144,7 @@ body {
   padding: 3rem 1.5rem;
   margin-top: 2rem;
   text-align: center;
+  scroll-margin-top: 2rem;
   background:
     radial-gradient(
       ellipse 60% 50% at 80% 10%,
@@ -1311,5 +1316,48 @@ body {
   }
   .hero-name {
     font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+}
+
+/* ─── Accessibility: Keyboard Focus ─── */
+
+.nav-brand:focus-visible,
+.nav-links a:focus-visible,
+.nav-toggle:focus-visible,
+.btn-primary:focus-visible,
+.btn-outline:focus-visible,
+.hero-link:focus-visible,
+.bento-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+/* ─── Accessibility: Reduced Motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .status-dot {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
