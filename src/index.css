@@ -923,13 +923,13 @@ body {
   display: grid;
   gap: 0;
   position: relative;
-  padding-left: 1.75rem;
 }
 
 .exp-grid::before {
   content: "";
   position: absolute;
   left: 0;
+  margin-left: -1px;
   top: 1rem;
   bottom: 1rem;
   width: 2px;
@@ -945,12 +945,13 @@ body {
 .exp-item {
   position: relative;
   padding-bottom: 1rem;
+  padding-left: 1.75rem;
 }
 
 .exp-item::before {
   content: "";
   position: absolute;
-  left: -1.75rem;
+  left: 0;
   top: 1.6rem;
   transform: translateX(-50%);
   width: 10px;
@@ -1268,7 +1269,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .exp-grid {
+  .exp-item {
     padding-left: 2.25rem;
   }
 
