@@ -40,11 +40,17 @@ function Reveal({
   )
 }
 
-const quickStats = [
-  { value: "3+", label: "Years building in Dynamics 365 and Power Platform" },
-  { value: "3", label: "Enterprise programs across healthcare, banking, and Microsoft ecosystems" },
-  { value: "3", label: "Microsoft certifications across Power Platform and Dynamics 365" },
-]
+const careerStartDate = new Date(2022, 1, 12)
+
+function getCompletedCareerYears(currentDate = new Date()) {
+  const yearDifference = currentDate.getFullYear() - careerStartDate.getFullYear()
+  const hasReachedAnniversary =
+    currentDate.getMonth() > careerStartDate.getMonth() ||
+    (currentDate.getMonth() === careerStartDate.getMonth() &&
+      currentDate.getDate() >= careerStartDate.getDate())
+
+  return hasReachedAnniversary ? yearDifference : yearDifference - 1
+}
 
 const focusAreas = [
   {
@@ -142,6 +148,12 @@ const marqueeItems = [
 
 export default function HomePage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const careerYears = getCompletedCareerYears()
+  const quickStats = [
+    { value: `${careerYears}+`, label: "Years building in Dynamics 365 and Power Platform" },
+    { value: "3", label: "Enterprise programs across healthcare, banking, and Microsoft ecosystems" },
+    { value: "3", label: "Microsoft certifications across Power Platform and Dynamics 365" },
+  ]
 
   return (
     <div>
@@ -184,7 +196,7 @@ export default function HomePage() {
             <div className="hero-content">
               <div className="hero-status">
                 <span className="status-dot" />
-                Building at Infosys for Microsoft
+                {careerYears}+ years in Microsoft business applications
               </div>
 
               <h1 className="hero-name">
@@ -256,6 +268,10 @@ export default function HomePage() {
                 <div className="hero-mini-card">
                   <span>Role</span>
                   <strong>Infosys for Microsoft</strong>
+                </div>
+                <div className="hero-mini-card">
+                  <span>Experience</span>
+                  <strong>{careerYears}+ years</strong>
                 </div>
                 <div className="hero-mini-card">
                   <span>Stack</span>
