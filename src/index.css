@@ -972,10 +972,18 @@ body {
 
 .exp-card {
   display: grid;
-  gap: 1rem;
+  gap: 0.9rem;
+}
+
+.exp-card > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.75rem;
 }
 
 .exp-period {
+  order: 2;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0;
@@ -984,12 +992,15 @@ body {
 }
 
 .exp-client {
+  order: 1;
+  width: 100%;
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
 }
 
 .exp-role {
+  order: 3;
   font-size: 0.88rem;
   color: var(--muted-foreground);
   font-weight: 500;
@@ -999,6 +1010,8 @@ body {
   display: grid;
   gap: 0.6rem;
   padding-left: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
 }
 
 .exp-points li {
@@ -1257,9 +1270,6 @@ body {
 
   .exp-grid {
     padding-left: 2.25rem;
-  }
-  .exp-card {
-    grid-template-columns: minmax(180px, 0.5fr) 1fr;
   }
 
   .cta {
