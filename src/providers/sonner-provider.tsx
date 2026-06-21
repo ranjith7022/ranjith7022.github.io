@@ -1,8 +1,8 @@
-import * as React from "react"
-import { Toaster } from "sonner"
-import { useTheme } from "@/hooks/use-theme"
+import * as React from "react";
+import { Toaster } from "sonner";
+import { useTheme } from "@/hooks/use-theme";
 
-type SonnerProviderProps = { children: React.ReactNode }
+type SonnerProviderProps = { children: React.ReactNode };
 
 export function SonnerProvider({ children }: SonnerProviderProps) {
   const { theme } = useTheme();
@@ -19,5 +19,5 @@ export function SonnerProvider({ children }: SonnerProviderProps) {
         visibleToasts={3}
       />
     </>
-  )
+  );
 }

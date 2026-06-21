@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react"
+import { useState, type ReactNode } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -15,20 +15,20 @@ import {
   Menu,
   Sparkles,
   X,
-} from "lucide-react"
-import { ModeToggle } from "@/components/mode-toggle"
-import { useInView } from "@/hooks/use-in-view"
+} from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
+import { useInView } from "@/hooks/use-in-view";
 
 function Reveal({
   children,
   className = "",
   delay = 0,
 }: {
-  children: ReactNode
-  className?: string
-  delay?: number
+  children: ReactNode;
+  className?: string;
+  delay?: number;
 }) {
-  const { ref, inView } = useInView<HTMLDivElement>()
+  const { ref, inView } = useInView<HTMLDivElement>();
   return (
     <div
       ref={ref}
@@ -37,19 +37,19 @@ function Reveal({
     >
       {children}
     </div>
-  )
+  );
 }
 
-const careerStartDate = new Date(2022, 1, 12)
+const careerStartDate = new Date(2022, 1, 12);
 
 function getCompletedCareerYears(currentDate = new Date()) {
-  const yearDifference = currentDate.getFullYear() - careerStartDate.getFullYear()
+  const yearDifference = currentDate.getFullYear() - careerStartDate.getFullYear();
   const hasReachedAnniversary =
     currentDate.getMonth() > careerStartDate.getMonth() ||
     (currentDate.getMonth() === careerStartDate.getMonth() &&
-      currentDate.getDate() >= careerStartDate.getDate())
+      currentDate.getDate() >= careerStartDate.getDate());
 
-  return hasReachedAnniversary ? yearDifference : yearDifference - 1
+  return hasReachedAnniversary ? yearDifference : yearDifference - 1;
 }
 
 const focusAreas = [
@@ -71,7 +71,7 @@ const focusAreas = [
     description:
       "Brings Python, analytics, and machine learning fundamentals into practical business problem-solving.",
   },
-]
+];
 
 const experience = [
   {
@@ -113,12 +113,19 @@ const experience = [
       "Recognized as High Talent and completed TCS Wings1 certifications in Machine First and Intelligent Business Automation.",
     ],
   },
-]
+];
 
 const skillGroups = [
   {
     title: "Microsoft stack",
-    items: ["Dynamics 365", "Power Platform", "Power Automate", "Customer Insights", "Power BI", "Canvas Apps"],
+    items: [
+      "Dynamics 365",
+      "Power Platform",
+      "Power Automate",
+      "Customer Insights",
+      "Power BI",
+      "Canvas Apps",
+    ],
   },
   {
     title: "Engineering",
@@ -130,30 +137,48 @@ const skillGroups = [
   },
   {
     title: "Delivery strengths",
-    items: ["Workflow automation", "Data integration", "Audience segmentation", "Linux fundamentals"],
+    items: [
+      "Workflow automation",
+      "Data integration",
+      "Audience segmentation",
+      "Linux fundamentals",
+    ],
   },
-]
+];
 
 const certifications = [
   "Power Platform Developer Associate (PL-400)",
   "Power Automate RPA Developer Associate (PL-500)",
   "Dynamics 365 Fundamentals (MB-910)",
-]
+];
 
 const marqueeItems = [
-  "Dynamics 365", "Power Platform", "Copilot Studio", "Power Automate",
-  "Customer Insights", "Power BI", "React", "C#", "Python", "SQL",
-  "NumPy", "pandas", "scikit-learn",
-]
+  "Dynamics 365",
+  "Power Platform",
+  "Copilot Studio",
+  "Power Automate",
+  "Customer Insights",
+  "Power BI",
+  "React",
+  "C#",
+  "Python",
+  "SQL",
+  "NumPy",
+  "pandas",
+  "scikit-learn",
+];
 
 export default function HomePage() {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  const careerYears = getCompletedCareerYears()
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const careerYears = getCompletedCareerYears();
   const quickStats = [
     { value: `${careerYears}+`, label: "Years building in Dynamics 365 and Power Platform" },
-    { value: "3", label: "Enterprise programs across healthcare, banking, and Microsoft ecosystems" },
+    {
+      value: "3",
+      label: "Enterprise programs across healthcare, banking, and Microsoft ecosystems",
+    },
     { value: "3", label: "Microsoft certifications across Power Platform and Dynamics 365" },
-  ]
+  ];
 
   return (
     <div>
@@ -172,10 +197,18 @@ export default function HomePage() {
           </a>
 
           <div className={`nav-links ${mobileNavOpen ? "nav-links-open" : ""}`}>
-            <a href="#about" onClick={() => setMobileNavOpen(false)}>About</a>
-            <a href="#experience" onClick={() => setMobileNavOpen(false)}>Experience</a>
-            <a href="#skills" onClick={() => setMobileNavOpen(false)}>Skills</a>
-            <a href="#contact" onClick={() => setMobileNavOpen(false)}>Contact</a>
+            <a href="#about" onClick={() => setMobileNavOpen(false)}>
+              About
+            </a>
+            <a href="#experience" onClick={() => setMobileNavOpen(false)}>
+              Experience
+            </a>
+            <a href="#skills" onClick={() => setMobileNavOpen(false)}>
+              Skills
+            </a>
+            <a href="#contact" onClick={() => setMobileNavOpen(false)}>
+              Contact
+            </a>
           </div>
 
           <div className="nav-actions">
@@ -200,16 +233,16 @@ export default function HomePage() {
               </div>
 
               <h1 className="hero-name">
-                Ranjith<br />Kumar M
+                Ranjith
+                <br />
+                Kumar M
               </h1>
 
-              <p className="hero-role">
-                Dynamics 365 &amp; Power Platform Developer
-              </p>
+              <p className="hero-role">Dynamics 365 &amp; Power Platform Developer</p>
 
               <p className="hero-desc">
-                Building smoother customer journeys with Dynamics&nbsp;365, Power Platform,
-                and data&#8209;driven automation — and now working on Microsoft's Copilot Studio Kit.
+                Building smoother customer journeys with Dynamics&nbsp;365, Power Platform, and
+                data&#8209;driven automation — and now working on Microsoft's Copilot Studio Kit.
               </p>
 
               <div className="hero-buttons">
@@ -232,11 +265,21 @@ export default function HomePage() {
                   <Mail className="h-3.5 w-3.5" />
                   Mailranjith7022@gmail.com
                 </a>
-                <a className="hero-link" href="https://www.linkedin.com/in/ranjith-kumar-m-739505154/" target="_blank" rel="noreferrer noopener">
+                <a
+                  className="hero-link"
+                  href="https://www.linkedin.com/in/ranjith-kumar-m-739505154/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
                   <Linkedin className="h-3.5 w-3.5" />
                   LinkedIn
                 </a>
-                <a className="hero-link" href="https://github.com/ranjith7022" target="_blank" rel="noreferrer noopener">
+                <a
+                  className="hero-link"
+                  href="https://github.com/ranjith7022"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
                   <Github className="h-3.5 w-3.5" />
                   GitHub
                 </a>
@@ -255,9 +298,9 @@ export default function HomePage() {
                 Copilot Studio &amp; Power Platform work for Microsoft
               </h2>
               <p className="hero-panel-desc">
-                Current delivery includes the Power CAT Copilot Studio Kit — working on
-                agent testing, governance workflows, prompt quality, and analytics for
-                agent performance and usage visibility.
+                Current delivery includes the Power CAT Copilot Studio Kit — working on agent
+                testing, governance workflows, prompt quality, and analytics for agent performance
+                and usage visibility.
               </p>
 
               <div className="hero-mini-grid">
@@ -350,7 +393,9 @@ export default function HomePage() {
             {/* Focus Areas */}
             {focusAreas.map(({ icon: Icon, title, description }, i) => (
               <Reveal key={title} delay={200 + i * 60}>
-                <div className={`glass-card bento-card${i === focusAreas.length - 1 ? " bento-wide" : ""}`}>
+                <div
+                  className={`glass-card bento-card${i === focusAreas.length - 1 ? " bento-wide" : ""}`}
+                >
                   <div className="bento-icon">
                     <Icon className="h-5 w-5" />
                   </div>
@@ -372,8 +417,8 @@ export default function HomePage() {
               </h2>
               <p className="section-desc">
                 Built across Tata Consultancy Services and Infosys in high-stakes client
-                environments where data quality, communication accuracy, governance, and
-                operational speed all matter.
+                environments where data quality, communication accuracy, governance, and operational
+                speed all matter.
               </p>
             </div>
           </Reveal>
@@ -407,8 +452,8 @@ export default function HomePage() {
                 Strong across platform delivery, engineering fundamentals, and analytics.
               </h2>
               <p className="section-desc">
-                A balanced toolkit for building customer-facing systems that also need
-                clean logic, integrations, and data awareness behind the scenes.
+                A balanced toolkit for building customer-facing systems that also need clean logic,
+                integrations, and data awareness behind the scenes.
               </p>
             </div>
           </Reveal>
@@ -420,7 +465,9 @@ export default function HomePage() {
                   <h3 className="skill-title">{group.title}</h3>
                   <div className="chip-row">
                     {group.items.map((item) => (
-                      <span key={item} className="chip">{item}</span>
+                      <span key={item} className="chip">
+                        {item}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -436,8 +483,8 @@ export default function HomePage() {
               </div>
               <p>
                 This profile combines Microsoft business applications expertise with hands-on
-                analytics and machine learning exposure — especially useful when customer
-                journeys depend on smarter data decisions.
+                analytics and machine learning exposure — especially useful when customer journeys
+                depend on smarter data decisions.
               </p>
             </div>
           </Reveal>
@@ -481,13 +528,11 @@ export default function HomePage() {
               <Sparkles className="h-3.5 w-3.5" />
               Contact
             </p>
-            <h2 className="section-title">
-              Let&apos;s build something that matters.
-            </h2>
+            <h2 className="section-title">Let&apos;s build something that matters.</h2>
             <p className="section-desc">
-              Open to roles where Dynamics 365 and Power Platform can create measurable
-              customer impact. If you&apos;re hiring for CRM, automation, or customer data
-              work inside the Microsoft ecosystem — let&apos;s talk.
+              Open to roles where Dynamics 365 and Power Platform can create measurable customer
+              impact. If you&apos;re hiring for CRM, automation, or customer data work inside the
+              Microsoft ecosystem — let&apos;s talk.
             </p>
             <div className="cta-actions">
               <a className="btn-primary" href="mailto:Mailranjith7022@gmail.com">
@@ -521,5 +566,5 @@ export default function HomePage() {
         </footer>
       </div>
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import { Outlet, NavLink } from "react-router-dom"
+import { Outlet, NavLink } from "react-router-dom";
 
-type LayoutProps = { showHeader?: boolean }
+type LayoutProps = { showHeader?: boolean };
 
 export default function Layout({ showHeader = true }: LayoutProps) {
   return (
@@ -9,7 +9,9 @@ export default function Layout({ showHeader = true }: LayoutProps) {
         <header className="h-14 border-b flex items-center">
           <div className="mx-auto w-full max-w-7xl px-6 flex items-center justify-between">
             <nav className="flex items-center gap-4">
-              <NavLink to="/" end
+              <NavLink
+                to="/"
+                end
                 className={({ isActive }) =>
                   `text-sm text-muted-foreground hover:text-foreground ${isActive ? "text-foreground font-medium" : ""}`
                 }
@@ -25,5 +27,5 @@ export default function Layout({ showHeader = true }: LayoutProps) {
         <Outlet />
       </main>
     </div>
-  )
+  );
 }
