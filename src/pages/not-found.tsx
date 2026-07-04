@@ -11,9 +11,7 @@ export default function NotFoundPage() {
           <span className="p-char">❯</span>
           <span className="p-cmd">cd /unknown-path</span>
         </div>
-        <p className="output err" style={{ color: "var(--destructive)" }}>
-          cd: no such directory — 404
-        </p>
+        <p className="output err">cd: no such directory — 404</p>
         <p className="muted">this isn't the page you're looking for.</p>
         <p>
           <Link to="/" className="tlink">

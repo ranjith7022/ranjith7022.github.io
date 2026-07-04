@@ -79,7 +79,7 @@ export function CommandPrompt() {
             <br />
             <span className="muted">
               help, ls, cat &lt;file&gt;, about, experience, skills, contact, whoami, social, date,
-              echo &lt;text&gt;, theme &lt;dark|light&gt;, clear
+              echo &lt;text&gt;, theme &lt;dark|light|system&gt;, clear
             </span>
           </div>,
         );
@@ -141,11 +141,11 @@ export function CommandPrompt() {
         push(<div>{arg || ""}</div>);
         break;
       case "theme": {
-        if (arg === "dark" || arg === "light") {
+        if (arg === "dark" || arg === "light" || arg === "system") {
           setTheme(arg);
           push(<div>theme set to {arg}</div>);
         } else {
-          push(<div className="err">usage: theme &lt;dark|light&gt;. current: {theme}</div>);
+          push(<div className="err">usage: theme &lt;dark|light|system&gt;. current: {theme}</div>);
         }
         break;
       }
@@ -197,7 +197,7 @@ export function CommandPrompt() {
 
   return (
     <div className="shell" onClick={focus}>
-      <div className="scrollback" ref={scrollRef}>
+      <div className="scrollback" ref={scrollRef} aria-live="polite">
         {lines.map((l) => (
           <div key={l.id}>{l.node}</div>
         ))}

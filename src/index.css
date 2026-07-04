@@ -110,6 +110,21 @@
   --secondary-foreground: #1f2328;
   --accent: #eaeef2;
   --accent-foreground: #1f2328;
+
+  --chart-1: #1a7f37;
+  --chart-2: #0969da;
+  --chart-3: #8257df;
+  --chart-4: #9a6700;
+  --chart-5: #d12878;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1f2328;
+  --sidebar-primary: #1a7f37;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eaeef2;
+  --sidebar-accent-foreground: #1f2328;
+  --sidebar-border: #d0d7de;
+  --sidebar-ring: #1a7f37;
 }
 
 @theme inline {
