@@ -1,15 +1,25 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-full grid place-items-center">
-      <div className="w-full max-w-7xl px-8 text-center flex flex-col items-center space-y-6">
-        <h1 className="text-5xl leading-tight tracking-tight">404 – Not found</h1>
-        <p className="text-muted-foreground">This isn't the page you're looking for.</p>
-        <Button variant="outline">
-          <Link to="/">Go home</Link>
-        </Button>
+    <div className="errpage">
+      <div>
+        <div className="prompt">
+          <span className="p-user">ranjith</span>
+          <span className="p-path">~/site</span>
+          <span className="p-branch">main</span>
+          <span className="p-char">❯</span>
+          <span className="p-cmd">cd /unknown-path</span>
+        </div>
+        <p className="output err">cd: no such directory — 404</p>
+        <p className="muted">this isn't the page you're looking for.</p>
+        <p>
+          <Link to="/" className="tlink">
+            <span className="tlink-k">[cd</span>
+            <span>~</span>
+            <span className="tlink-k">]</span>
+          </Link>
+        </p>
       </div>
     </div>
   );

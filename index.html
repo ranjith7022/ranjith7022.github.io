@@ -6,15 +6,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Ranjith Kumar M is a Dynamics 365 and Power Platform developer focused on CRM customization, customer journeys, automation, and Customer Insights."
+      content="Ranjith Kumar M — Dynamics 365 & Power Platform developer. Personal site rendered as a terminal."
     />
-    <title>Ranjith Kumar M | Dynamics 365 Developer</title>
+    <meta name="color-scheme" content="dark light" />
+    <title>ranjith@portfolio:~$</title>
+    <script>
+      (function () {
+        try {
+          var key = "app-theme";
+          var stored = localStorage.getItem(key);
+          var theme =
+            stored === "light" || stored === "dark"
+              ? stored
+              : window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark";
+          document.documentElement.classList.add(theme);
+        } catch (e) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
