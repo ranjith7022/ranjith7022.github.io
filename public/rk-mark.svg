@@ -7,7 +7,7 @@
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="14" fill="url(#bg)"/>
-  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#ffb454" stroke-width="2" opacity="0.5"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#7ee787" stroke-width="2" opacity="0.5"/>
   <text
     x="32"
     y="43"
@@ -15,7 +15,7 @@
     font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
     font-weight="700"
     font-size="30"
-    fill="#ffb454"
+    fill="#7ee787"
     letter-spacing="-3"
   >RK</text>
 </svg>
