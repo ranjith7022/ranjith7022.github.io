@@ -1,7 +1,7 @@
 import { fileURLToPath } from "node:url";
 import { defineConfig, lazyPlugins } from "vite-plus";
 import path from "path";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 
 const rootDir = fileURLToPath(new URL(".", import.meta.url));
