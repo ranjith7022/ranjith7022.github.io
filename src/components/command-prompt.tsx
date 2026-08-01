@@ -1,23 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useTheme } from "@/hooks/use-theme";
+import { PromptPrefix } from "@/components/prompt";
 
 type Line = { id: number; node: ReactNode };
 
-const PROMPT = <span className="p-user">ranjith</span>;
-const PATH = <span className="p-path">~/site</span>;
-const BRANCH = <span className="p-branch">main</span>;
-const CHAR = <span className="p-char">❯</span>;
-
-function PromptPrefix() {
-  return (
-    <>
-      {PROMPT}
-      {PATH}
-      {BRANCH}
-      {CHAR}
-    </>
-  );
-}
+const RESUME_URL = "/Ranjith-Kumar-Resume.pdf";
 
 const FILES: Record<string, string> = {
   about:
@@ -57,6 +44,11 @@ export function CommandPrompt() {
 
   const focus = () => inputRef.current?.focus({ preventScroll: true });
 
+  const openResume = () => {
+    push(<div>opening resume.pdf…</div>);
+    window.open(RESUME_URL, "_blank", "noopener,noreferrer");
+  };
+
   const run = (raw: string) => {
     const input = raw.trim();
     push(
@@ -78,8 +70,8 @@ export function CommandPrompt() {
             available commands:
             <br />
             <span className="muted">
-              help, ls, cat &lt;file&gt;, about, experience, skills, contact, whoami, social, date,
-              echo &lt;text&gt;, theme &lt;dark|light|system&gt;, clear
+              help, ls, cat &lt;file&gt;, about, experience, skills, contact, resume, whoami,
+              social, date, echo &lt;text&gt;, theme &lt;dark|light|system&gt;, clear
             </span>
           </div>,
         );
@@ -97,11 +89,19 @@ export function CommandPrompt() {
           push(<div className="err">usage: cat &lt;file&gt;. try `ls`.</div>);
           break;
         }
-        const f = FILES[arg.toLowerCase().replace(/\.(md|txt)$/, "")];
+        const name = arg.toLowerCase();
+        if (name === "resume" || name === "resume.pdf" || name === "./resume.pdf") {
+          openResume();
+          break;
+        }
+        const f = FILES[name.replace(/\.(md|txt)$/, "")];
         if (f) push(<div>{f}</div>);
         else push(<div className="err">cat: {arg}: no such file</div>);
         break;
       }
+      case "resume":
+        openResume();
+        break;
       case "about":
         push(<div>opening about…</div>);
         scrollTo("about");

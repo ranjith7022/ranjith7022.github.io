@@ -1,5 +1,6 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import { CommandPrompt } from "@/components/command-prompt";
+import { Prompt } from "@/components/prompt";
 
 const careerStartDate = new Date(2022, 1, 12);
 
@@ -115,31 +116,6 @@ const certifications = [
   "Power Automate RPA Developer Associate (PL-500)",
   "Dynamics 365 Fundamentals (MB-910)",
 ];
-
-function Prompt({
-  user = "ranjith",
-  path = "~/site",
-  branch = "main",
-  cmd,
-  children,
-}: {
-  user?: string;
-  path?: string;
-  branch?: string;
-  cmd: string;
-  children?: React.ReactNode;
-}) {
-  return (
-    <div className="prompt">
-      <span className="p-user">{user}</span>
-      <span className="p-path">{path}</span>
-      <span className="p-branch">{branch}</span>
-      <span className="p-char">❯</span>
-      <span className="p-cmd">{cmd}</span>
-      {children}
-    </div>
-  );
-}
 
 export default function HomePage() {
   return (
