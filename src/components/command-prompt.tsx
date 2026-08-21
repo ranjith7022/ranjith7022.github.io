@@ -1,21 +1,21 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useTheme } from "@/hooks/use-theme";
 import { PromptPrefix } from "@/components/prompt";
+import { careerYears } from "@/lib/career";
 
 type Line = { id: number; node: ReactNode };
 
 const RESUME_URL = "/Ranjith-Kumar-Resume.pdf";
 
 const FILES: Record<string, string> = {
-  about:
-    "Dynamics 365 & Power Platform developer. 3+ yrs building customer journeys, automation, and audience segmentation. Currently on Microsoft's Copilot Studio Kit via Infosys.",
+  about: `Dynamics 365 & Power Platform developer. ${careerYears}+ yrs building customer journeys, automation, and audience segmentation. Currently on Microsoft's Copilot Studio Kit via Infosys.`,
   experience:
-    "Aug 2025 - Present: Infosys for Microsoft — Copilot Studio Kit. 2025: Central Bank — D365 onboarding + Customer Insights. 2022-2024: Humana — D365 customization + integrations.",
+    "Aug 2025 - Present: Infosys for Microsoft — Copilot Studio Kit. 2025: Central Bank — D365 onboarding + Customer Insights. 2022-2024: TCS for Humana — D365 customization + integrations.",
   skills:
     "microsoft: d365, power platform, copilot studio, power automate, customer insights, power bi, canvas apps | engineering: react, javascript, c#, python, sql | data-ml: numpy, pandas, scikit-learn, seaborn, nltk",
   certs: "PL-400, PL-500, MB-910. Education: B.Tech, Rajalakshmi Engineering College, CGPA 8.7.",
   contact:
-    "email Mailranjith7022@gmail.com | linkedin /in/ranjith-kumar-m-739505154 | github /ranjith7022 | chennai, tn",
+    "email mailranjith7022@gmail.com | linkedin /in/ranjith-kumar-m-739505154 | github /ranjith7022 | chennai, tn",
 };
 
 function scrollTo(id: string) {
@@ -126,7 +126,7 @@ export function CommandPrompt() {
       case "social":
         push(
           <div>
-            <span className="kwd">email</span> Mailranjith7022@gmail.com
+            <span className="kwd">email</span> mailranjith7022@gmail.com
             <br />
             <span className="kwd">linkedin</span> /in/ranjith-kumar-m-739505154
             <br />

@@ -1,20 +1,7 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import { CommandPrompt } from "@/components/command-prompt";
 import { Prompt } from "@/components/prompt";
-
-const careerStartDate = new Date(2022, 1, 12);
-
-function getCompletedCareerYears(currentDate = new Date()) {
-  const yearDifference = currentDate.getFullYear() - careerStartDate.getFullYear();
-  const hasReachedAnniversary =
-    currentDate.getMonth() > careerStartDate.getMonth() ||
-    (currentDate.getMonth() === careerStartDate.getMonth() &&
-      currentDate.getDate() >= careerStartDate.getDate());
-
-  return hasReachedAnniversary ? yearDifference : yearDifference - 1;
-}
-
-const careerYears = getCompletedCareerYears();
+import { careerYears } from "@/lib/career";
 
 const experience = [
   {
@@ -42,7 +29,7 @@ const experience = [
   {
     hash: "3d8a022",
     date: "2022 - 2024",
-    author: "Humana",
+    author: "TCS for Humana",
     subject: "Dynamics 365 Developer",
     body: [
       "Customized forms with JavaScript to improve user experience inside Dynamics 365.",
@@ -171,7 +158,7 @@ export default function HomePage() {
                 <dl className="info">
                   <dt>email</dt>
                   <dd>
-                    <a href="mailto:Mailranjith7022@gmail.com">Mailranjith7022@gmail.com</a>
+                    <a href="mailto:mailranjith7022@gmail.com">mailranjith7022@gmail.com</a>
                   </dd>
                   <dt>linkedin</dt>
                   <dd>
@@ -351,9 +338,9 @@ export default function HomePage() {
                 crm, automation, or customer data work in the microsoft ecosystem — reach out.
               </p>
               <div className="links">
-                <a className="tlink" href="mailto:Mailranjith7022@gmail.com">
+                <a className="tlink" href="mailto:mailranjith7022@gmail.com">
                   <span className="tlink-k">[email]</span>
-                  <span>Mailranjith7022@gmail.com</span>
+                  <span>mailranjith7022@gmail.com</span>
                 </a>
                 <a
                   className="tlink"

@@ -21,7 +21,7 @@
 
   --foreground: #c9d1d9;
   --muted: #8b949e;
-  --dim: #5b6370;
+  --dim: #767f8c;
 
   --border: #1c2030;
   --border-bright: #2a3043;
@@ -51,21 +51,6 @@
   --accent: #161a28;
   --accent-foreground: #c9d1d9;
   --muted-foreground: #8b949e;
-
-  --chart-1: #7ee787;
-  --chart-2: #6cb6ff;
-  --chart-3: #c499ff;
-  --chart-4: #e3b341;
-  --chart-5: #ff9ec2;
-
-  --sidebar: #0e1019;
-  --sidebar-foreground: #c9d1d9;
-  --sidebar-primary: #7ee787;
-  --sidebar-primary-foreground: #0a0c14;
-  --sidebar-accent: #161a28;
-  --sidebar-accent-foreground: #c9d1d9;
-  --sidebar-border: #1c2030;
-  --sidebar-ring: #7ee787;
 }
 
 .light {
@@ -80,7 +65,7 @@
 
   --foreground: #1f2328;
   --muted: #636c76;
-  --dim: #818b98;
+  --dim: #66707d;
   --muted-foreground: #636c76;
 
   --border: #d0d7de;
@@ -109,21 +94,6 @@
   --secondary-foreground: #1f2328;
   --accent: #eaeef2;
   --accent-foreground: #1f2328;
-
-  --chart-1: #1a7f37;
-  --chart-2: #0969da;
-  --chart-3: #8257df;
-  --chart-4: #9a6700;
-  --chart-5: #d12878;
-
-  --sidebar: #ffffff;
-  --sidebar-foreground: #1f2328;
-  --sidebar-primary: #1a7f37;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #eaeef2;
-  --sidebar-accent-foreground: #1f2328;
-  --sidebar-border: #d0d7de;
-  --sidebar-ring: #1a7f37;
 }
 
 @theme inline {
@@ -150,19 +120,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 /* ─── Base ─── */
@@ -378,9 +335,6 @@
 .kwd {
   color: var(--c-purple);
 }
-.str {
-  color: var(--c-green);
-}
 .num {
   color: var(--c-yellow);
 }
@@ -423,10 +377,6 @@
   letter-spacing: -0.01em;
   margin: 0.4rem 0 0.2rem;
   color: var(--foreground);
-}
-
-.hero-name .accent {
-  color: var(--c-green);
 }
 
 .hero-role {
@@ -635,10 +585,6 @@
 
 .tree-item::before {
   content: "  ";
-}
-
-.tree-item.dir {
-  color: var(--c-blue);
 }
 
 /* ─── Credentials ─── */
@@ -879,20 +825,6 @@
   font-size: 0.78rem;
   color: var(--dim);
   padding: 0 0.25rem;
-}
-
-/* ─── 404 ─── */
-
-.errpage {
-  min-height: 100%;
-  display: grid;
-  place-items: center;
-  padding: 2rem;
-  text-align: center;
-}
-
-.errpage .prompt {
-  justify-content: center;
 }
 
 /* ─── Focus ─── */
