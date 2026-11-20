@@ -1,6 +1,8 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import { CommandPrompt } from "@/components/command-prompt";
+import { Neofetch } from "@/components/neofetch";
 import { Prompt } from "@/components/prompt";
+import { StatusBar } from "@/components/status-bar";
 import { careerYears } from "@/lib/career";
 
 const experience = [
@@ -98,6 +100,8 @@ const skillColumns: { name: string; items: string[] }[] = [
   },
 ];
 
+const skillCount = skillColumns.reduce((n, c) => n + c.items.length, 0);
+
 const certifications = [
   "Power Platform Developer Associate (PL-400)",
   "Power Automate RPA Developer Associate (PL-500)",
@@ -129,10 +133,10 @@ export default function HomePage() {
         {/* body */}
         <div className="term-body">
           {/* hero */}
-          <div className="hero-grid">
+          <div id="home" className="hero-grid">
             <div>
-              <Prompt cmd="whoami" />
-              <div className="output">
+              <Prompt cmd="whoami" typed />
+              <div className="output hero-out">
                 <h1 className="hero-name">Ranjith Kumar M</h1>
                 <p className="hero-role">
                   Dynamics 365 &amp; Power Platform Developer
@@ -142,58 +146,20 @@ export default function HomePage() {
 
               <Prompt cmd="cat ./summary.md" />
               <div className="output">
-                <pre>
+                <p className="summary">
                   <span className="tok-h"># summary</span>
-                  {"\n"}
+                  <br />
                   Building smoother customer journeys with Dynamics 365, Power Platform, and
                   data-driven automation. Currently working on Microsoft's Copilot Studio Kit via
-                  Infosys — agent testing, governance, prompt quality, and analytics.
-                </pre>
+                  Infosys: agent testing, governance, prompt quality, and analytics.
+                </p>
               </div>
             </div>
 
             <div>
-              <Prompt cmd="./contact --info" />
+              <Prompt cmd="neofetch" />
               <div className="output">
-                <dl className="info">
-                  <dt>email</dt>
-                  <dd>
-                    <a href="mailto:mailranjith7022@gmail.com">mailranjith7022@gmail.com</a>
-                  </dd>
-                  <dt>linkedin</dt>
-                  <dd>
-                    <a
-                      href="https://www.linkedin.com/in/ranjith-kumar-m-739505154/"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      /in/ranjith-kumar-m-739505154
-                    </a>
-                  </dd>
-                  <dt>github</dt>
-                  <dd>
-                    <a
-                      href="https://github.com/ranjith7022"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      /ranjith7022
-                    </a>
-                  </dd>
-                  <dt>location</dt>
-                  <dd>Chennai, Tamil Nadu</dd>
-                  <dt>resume</dt>
-                  <dd>
-                    <a href="/Ranjith-Kumar-Resume.pdf" target="_blank" rel="noreferrer noopener">
-                      Ranjith-Kumar-Resume.pdf ↗
-                    </a>
-                  </dd>
-                  <dt>status</dt>
-                  <dd>
-                    open to roles · <span className="num">{careerYears}+</span> yrs ·{" "}
-                    <span className="num">3</span> certs
-                  </dd>
-                </dl>
+                <Neofetch />
               </div>
             </div>
           </div>
@@ -234,36 +200,47 @@ export default function HomePage() {
 
           {/* experience */}
           <section id="experience" className="section">
-            <Prompt cmd="git log --oneline" />
+            <Prompt cmd="git log --graph" />
             <div className="output">
               <h2 className="section-h">
                 <span className="tok-h"># experience</span>
               </h2>
               <p className="section-desc">
-                From healthcare lead workflows to banking onboarding journeys — built in high-stakes
+                From healthcare lead workflows to banking onboarding journeys, built in high-stakes
                 client environments where data quality, communication accuracy, and operational
                 speed all matter.
               </p>
-              <div className="commits">
+              <ol className="graph">
                 {experience.map((c, i) => (
-                  <article key={c.hash} className="commit">
-                    <div>
+                  <li key={c.hash} className="commit">
+                    <div className="commit-line">
+                      <span className="graph-node" aria-hidden="true">
+                        *
+                      </span>
                       <span className="commit-hash">commit {c.hash}</span>
-                      {i === 0 && <span className="commit-head">(HEAD -&gt; main)</span>}
-                      <span className="commit-date">{c.date}</span>
+                      {i === 0 && (
+                        <span className="commit-head">
+                          {" ("}
+                          <span className="commit-head-ref">HEAD -&gt; main</span>
+                          {")"}
+                        </span>
+                      )}
                     </div>
-                    <div className="commit-author">
-                      Author: <b>Ranjith Kumar M</b> &lt;{c.author}&gt;
+                    <div className="commit-meta">
+                      <span className="commit-k">Author:</span> Ranjith Kumar M &lt;{c.author}&gt;
                     </div>
-                    <div className="commit-subject">{c.subject}</div>
+                    <div className="commit-meta">
+                      <span className="commit-k">Date:</span> {c.date}
+                    </div>
+                    <h3 className="commit-subject">{c.subject}</h3>
                     <ul className="commit-body">
                       {c.body.map((p) => (
                         <li key={p}>{p}</li>
                       ))}
                     </ul>
-                  </article>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
           </section>
 
@@ -279,19 +256,36 @@ export default function HomePage() {
                 integrations, and data awareness behind the scenes.
               </p>
               <div className="tree">
-                {skillColumns.map((col) => (
-                  <div key={col.name} className="tree-col">
-                    <div className="tree-head">
-                      {col.name}
-                      <span className="tree-slash">/</span>
-                    </div>
-                    {col.items.map((it) => (
-                      <div key={it} className="tree-item">
-                        {it}
+                <div className="tree-root">skills/</div>
+                <div className="tree-cols">
+                  {skillColumns.map((col, ci) => {
+                    const lastCol = ci === skillColumns.length - 1;
+                    return (
+                      <div key={col.name} className="tree-col">
+                        <div className="tree-head">
+                          <span className="tree-glyph" aria-hidden="true">
+                            {lastCol ? "└── " : "├── "}
+                          </span>
+                          {col.name}/
+                        </div>
+                        <ul className="tree-items">
+                          {col.items.map((it, ii) => (
+                            <li key={it} className="tree-item">
+                              <span className="tree-glyph" aria-hidden="true">
+                                {lastCol ? "    " : "│   "}
+                                {ii === col.items.length - 1 ? "└── " : "├── "}
+                              </span>
+                              {it}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                    ))}
-                  </div>
-                ))}
+                    );
+                  })}
+                </div>
+                <div className="tree-summary">
+                  {skillColumns.length} directories, {skillCount} files
+                </div>
               </div>
             </div>
           </section>
@@ -383,8 +377,10 @@ export default function HomePage() {
 
       <footer className="footer">
         <span>© {new Date().getFullYear()} ranjith kumar m</span>
-        <span>built with react · vite · tailwind</span>
+        <span>built with react, vite, tailwind</span>
       </footer>
+
+      <StatusBar />
     </div>
   );
 }
