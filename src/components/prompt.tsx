@@ -21,14 +21,20 @@ export function PromptPrefix({
 
 type PromptProps = PromptPrefixProps & {
   cmd: string;
+  typed?: boolean;
   children?: React.ReactNode;
 };
 
-export function Prompt({ user, path, branch, cmd, children }: PromptProps) {
+export function Prompt({ user, path, branch, cmd, typed, children }: PromptProps) {
   return (
     <div className="prompt">
       <PromptPrefix user={user} path={path} branch={branch} />
-      <span className="p-cmd">{cmd}</span>
+      <span
+        className={typed ? "p-cmd typed" : "p-cmd"}
+        style={typed ? ({ "--chars": cmd.length } as React.CSSProperties) : undefined}
+      >
+        {cmd}
+      </span>
       {children}
     </div>
   );

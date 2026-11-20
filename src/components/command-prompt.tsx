@@ -23,6 +23,25 @@ function scrollTo(id: string) {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+const COMMANDS = [
+  "help",
+  "ls",
+  "cat",
+  "about",
+  "experience",
+  "skills",
+  "contact",
+  "resume",
+  "whoami",
+  "social",
+  "date",
+  "echo",
+  "theme",
+  "clear",
+];
+
+const SUGGESTIONS = ["help", "ls", "cat about", "social", "resume"];
+
 export function CommandPrompt() {
   const { theme, setTheme } = useTheme();
   const [lines, setLines] = useState<Line[]>([]);
@@ -169,7 +188,13 @@ export function CommandPrompt() {
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Tab" && value.trim() && !value.includes(" ")) {
+      const matches = COMMANDS.filter((c) => c.startsWith(value.trim()));
+      if (matches.length === 0) return;
+      e.preventDefault();
+      if (matches.length === 1) setValue(`${matches[0]} `);
+      else push(<div className="muted">{matches.join("  ")}</div>);
+    } else if (e.key === "Enter") {
       run(value);
       setValue("");
     } else if (e.key === "ArrowUp") {
@@ -197,6 +222,25 @@ export function CommandPrompt() {
 
   return (
     <div className="shell" onClick={focus}>
+      <div className="shell-head">
+        <span className="comment"># interactive shell. try a command:</span>
+        <div className="shell-suggest">
+          {SUGGESTIONS.map((s) => (
+            <button
+              key={s}
+              type="button"
+              className="chip"
+              onClick={(e) => {
+                e.stopPropagation();
+                run(s);
+                focus();
+              }}
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+      </div>
       <div className="scrollback" ref={scrollRef} aria-live="polite">
         {lines.map((l) => (
           <div key={l.id}>{l.node}</div>
@@ -210,6 +254,7 @@ export function CommandPrompt() {
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={onKeyDown}
+          placeholder="type help and press enter"
           spellCheck={false}
           autoComplete="off"
           autoCorrect="off"
@@ -219,7 +264,7 @@ export function CommandPrompt() {
         />
       </div>
       <div id="cmd-hint" className="cmd-hint">
-        type <span className="kwd">help</span> · ctrl+l clears · ↑/↓ history
+        tab completes, ↑/↓ history, ctrl+l clears
       </div>
     </div>
   );
